@@ -12,7 +12,7 @@ using LaunakerfiRestService.Models;
 
 namespace LaunakerfiRestService.Controllers
 {
-    public class payCheckModelsController : ApiController
+    public class payCheckController : ApiController
     {
         private SalarySystemDBContext db = new SalarySystemDBContext();
 
