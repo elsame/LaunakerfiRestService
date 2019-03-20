@@ -12,44 +12,44 @@ using LaunakerfiRestService.Models;
 
 namespace LaunakerfiRestService.Controllers
 {
-    public class payCheckController : ApiController
+    public class groupModelsController : ApiController
     {
         private SalarySystemDBContext db = new SalarySystemDBContext();
 
-        // GET: api/payCheckModels
-        public IQueryable<payCheckModel> GetPayCheck()
+        // GET: api/groupModels
+        public IQueryable<groupModel> GetgroupModels()
         {
-            return db.PayCheck;
+            return db.groupModels;
         }
 
-        // GET: api/payCheckModels/5
-        [ResponseType(typeof(payCheckModel))]
-        public IHttpActionResult GetpayCheckModel(int id)
+        // GET: api/groupModels/5
+        [ResponseType(typeof(groupModel))]
+        public IHttpActionResult GetgroupModel(int id)
         {
-            payCheckModel payCheckModel = db.PayCheck.Find(id);
-            if (payCheckModel == null)
+            groupModel groupModel = db.groupModels.Find(id);
+            if (groupModel == null)
             {
                 return NotFound();
             }
 
-            return Ok(payCheckModel);
+            return Ok(groupModel);
         }
 
-        // PUT: api/payCheckModels/5
+        // PUT: api/groupModels/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutpayCheckModel(int id, payCheckModel payCheckModel)
+        public IHttpActionResult PutgroupModel(int id, groupModel groupModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != payCheckModel.Id)
+            if (id != groupModel.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(payCheckModel).State = EntityState.Modified;
+            db.Entry(groupModel).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace LaunakerfiRestService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!payCheckModelExists(id))
+                if (!groupModelExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace LaunakerfiRestService.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/payCheckModels
-        [ResponseType(typeof(payCheckModel))]
-        public IHttpActionResult PostpayCheckModel(payCheckModel payCheckModel)
+        // POST: api/groupModels
+        [ResponseType(typeof(groupModel))]
+        public IHttpActionResult PostgroupModel(groupModel groupModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.PayCheck.Add(payCheckModel);
+            db.groupModels.Add(groupModel);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = payCheckModel.Id }, payCheckModel);
+            return CreatedAtRoute("DefaultApi", new { id = groupModel.Id }, groupModel);
         }
 
-        // DELETE: api/payCheckModels/5
-        [ResponseType(typeof(payCheckModel))]
-        public IHttpActionResult DeletepayCheckModel(int id)
+        // DELETE: api/groupModels/5
+        [ResponseType(typeof(groupModel))]
+        public IHttpActionResult DeletegroupModel(int id)
         {
-            payCheckModel payCheckModel = db.PayCheck.Find(id);
-            if (payCheckModel == null)
+            groupModel groupModel = db.groupModels.Find(id);
+            if (groupModel == null)
             {
                 return NotFound();
             }
 
-            db.PayCheck.Remove(payCheckModel);
+            db.groupModels.Remove(groupModel);
             db.SaveChanges();
 
-            return Ok(payCheckModel);
+            return Ok(groupModel);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace LaunakerfiRestService.Controllers
             base.Dispose(disposing);
         }
 
-        private bool payCheckModelExists(int id)
+        private bool groupModelExists(int id)
         {
-            return db.PayCheck.Count(e => e.Id == id) > 0;
+            return db.groupModels.Count(e => e.Id == id) > 0;
         }
     }
 }
