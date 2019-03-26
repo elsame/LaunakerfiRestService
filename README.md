@@ -1,0 +1,1 @@
+[![Build Status](https://elsame.visualstudio.com/SalarySystem/_apis/build/status/SalarySystem-CI?branchName=master)](https://elsame.visualstudio.com/SalarySystem/_build/latest?definitionId=1&branchName=master)
